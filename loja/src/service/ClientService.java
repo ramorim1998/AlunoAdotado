@@ -8,20 +8,20 @@ import repository.ClientRepository;
 public class ClientService {
 	private ClientRepository client = new ClientRepository();
 
-	public Client addClient(Client client) {
-		this.client.AddClient(client);
+	public Client adicionarClient(Client client) {
+		this.client.adicionarClient(client);
 		return client;
 	}
 
-	public void removeClient(Client client) {
-		this.client.deleteClient(client);
+	public void removerClient(Client client) {
+		this.client.deletarClient(client);
 	}
 
-	public void attClient(Client client) {
-		this.client.updateClient(client);
+	public void atualizarClient(Client client, Long id) {
+		this.client.updateClient(client, id);
 	}
 
-	public ArrayList<Client> listAll() {
+	public ArrayList<Client> listarAll() {
 		return this.client.readAll(null);
 	}
 }

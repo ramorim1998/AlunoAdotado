@@ -8,21 +8,21 @@ import repository.ProdutoRepository;
 public class ProdutoService {
 	private ProdutoRepository produtoR = new ProdutoRepository();
 
-	public Produto addProduto(Produto produto) {
-		this.produtoR.AddProduto(produto);
+	public Produto adicionarProduto(Produto produto) {
+		this.produtoR.adicionarProduto(produto);
 		return produto;
 	}
 
-	public void removeProduto(Produto produto) {
-		this.produtoR.deleteProduto(produto);
+	public void removerProduto(Produto produto) {
+		this.produtoR.deletarProduto(produto);
 
 	}
 
-	public void attProduto(Produto produto) {
-		this.produtoR.updateProduto(produto);
+	public void atualizarProduto(Produto produto, Long id) {
+		this.produtoR.updateProduto(produto, id);
 	}
 
-	public List<Produto> listAll() {
+	public List<Produto> listarAll() {
 		return this.produtoR.readAll(null);
 	}
 

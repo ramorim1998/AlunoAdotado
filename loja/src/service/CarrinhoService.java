@@ -9,28 +9,28 @@ import repository.CarrinhoRepository;
 public class CarrinhoService {
 	private CarrinhoRepository carrinho = new CarrinhoRepository();
 
-	public Carrinho addCarrinho(Carrinho carrinho) {
+	public Carrinho adicionarCarrinho(Carrinho carrinho) {
 		this.carrinho.addCarrinho(carrinho);
 		return carrinho;
 	}
 
-	public void removeCarrinho(Carrinho carrinho) {
+	public void removerCarrinho(Carrinho carrinho) {
 		this.carrinho.deleteCarrinho(carrinho);
 	}
 
-	public void attCarrinho(Carrinho carrinho) {
-		this.carrinho.updateCarrinho(carrinho);
+	public void updateCarrinho(Carrinho carrinho, Long id) {
+		this.carrinho.updateCarrinho(id, carrinho);
 	}
 
-	public List<Carrinho> listAll() {
+	public List<Carrinho> listarAll() {
 		return this.carrinho.readAll(null);
 	}
 
-	public HashMap<Long, Produto> addProdu(Carrinho carrinho, Produto produto) {
+	public HashMap<Long, Produto> adicionarProduto(Carrinho carrinho, Produto produto) {
 		return this.carrinho.addProduto(carrinho, produto);
 	}
 
-	public Produto listaCliente(Carrinho carrinho, Long cliente) {
+	public Produto listarCliente(Carrinho carrinho, Long cliente) {
 		return this.carrinho.listaKdaClient(carrinho, cliente);
 	}
 

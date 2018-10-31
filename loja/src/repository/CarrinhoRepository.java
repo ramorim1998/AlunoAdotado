@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import loja.Carrinho;
-import loja.Client;
 import loja.Produto;
 
 public class CarrinhoRepository {
@@ -15,14 +14,15 @@ public class CarrinhoRepository {
 		return carrinho;
 	}
 
-	public Carrinho updateCarrinho(Carrinho carrinho) {
+	public Carrinho updateCarrinho(Long id, Carrinho carrinho) {
 		for (int i = 0; i < carrinhos.size(); i++) {
-			Carrinho carrinhoAtual = carrinhos.get(i);
-			if (carrinhoAtual.equals(carrinho)) {
-				carrinhos.add(i, carrinho);
-				break;
+			if (carrinhos.get(i).getId() == id) {
+				Carrinho carrinhoAtual = carrinhos.get(i);
+				if (carrinhoAtual.getId() == carrinho.getId()) {
+					carrinhos.add(i, carrinho);
+					break;
+				}
 			}
-
 		}
 		return carrinho;
 	}

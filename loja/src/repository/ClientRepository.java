@@ -7,25 +7,27 @@ public class ClientRepository {
 	private ArrayList<Client> clientes = new ArrayList<Client>();
 	private Long idSequence = 0L;
 
-	public Client AddClient(Client client) {
+	public Client adicionarClient(Client client) {
 		client.setId(idSequence);
 		clientes.add(client);
 		this.incSequenceClient();
 		return client;
 	}
 
-	public Client updateClient(Client client) {
+	public Client updateClient(Client client, Long id) {
 		for (int i = 0; i < clientes.size(); i++) {
-			Client clientAtual = clientes.get(i);
-			if (clientAtual.equals(client)) {
-				clientes.add(i, client);
-				break;
+			if (clientes.get(i).getId() == id) {
+				Client clientAtual = clientes.get(i);
+				if (clientAtual.equals(client)) {
+					clientes.add(i, client);
+					break;
+				}
 			}
 		}
 		return client;
 	}
 
-	public void deleteClient(Client client) {
+	public void deletarClient(Client client) {
 		for (int i = 0; i < clientes.size(); i++) {
 			Client clientAtual = clientes.get(i);
 			if (clientAtual.equals(client)) {
@@ -33,8 +35,8 @@ public class ClientRepository {
 			}
 		}
 	}
-	
-	public ArrayList<Client> readAll (Client client){
+
+	public ArrayList<Client> readAll(Client client) {
 		return this.clientes;
 	}
 
@@ -46,5 +48,5 @@ public class ClientRepository {
 	public String toString() {
 		return "ClientRepository [clientes=" + clientes + ", idSequence=" + idSequence + "]";
 	}
-	
+
 }

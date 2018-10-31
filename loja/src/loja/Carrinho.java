@@ -49,9 +49,15 @@ public class Carrinho {
 		return listA.get(1L);
 	}
 
+	public Long getId() {
+
+		return this.id;
+	}
+
 	@Override
 	public String toString() {
 		return "Carrinho [id=" + id + ", produto=" + produto + ", listA=" + listA + ", valorTotal=" + valorTotal + "]";
 	}
 
+	
 }
