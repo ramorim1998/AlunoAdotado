@@ -2,7 +2,7 @@ package service;
 
 import java.util.ArrayList;
 
-import loja.Client;
+import model.Client;
 import repository.ClientRepository;
 
 public class ClientService {
@@ -23,5 +23,11 @@ public class ClientService {
 
 	public ArrayList<Client> listarAll() {
 		return this.client.readAll(null);
+	}
+	public Client getById(Long id) {
+		return this.client.getById(id);
+	}
+	public void deleteById(Long id) {
+		client.deleteById(id);
 	}
 }

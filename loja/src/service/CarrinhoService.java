@@ -2,8 +2,9 @@ package service;
 
 import java.util.HashMap;
 import java.util.List;
-import loja.Produto;
-import loja.Carrinho;
+
+import model.Carrinho;
+import model.Produto;
 import repository.CarrinhoRepository;
 
 public class CarrinhoService {
@@ -32,6 +33,13 @@ public class CarrinhoService {
 
 	public Produto listarCliente(Carrinho carrinho, Long cliente) {
 		return this.carrinho.listaKdaClient(carrinho, cliente);
+	}
+
+	public Carrinho getById(Long id) {
+		return this.carrinho.getById(id);
+	}
+	public void deleteById(Long id) {
+		this.carrinho.deleteById(id);
 	}
 
 }

@@ -3,8 +3,9 @@ package repository;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import loja.Carrinho;
-import loja.Produto;
+
+import model.Carrinho;
+import model.Produto;
 
 public class CarrinhoRepository {
 	private List<Carrinho> carrinhos = new ArrayList<Carrinho>();
@@ -50,5 +51,23 @@ public class CarrinhoRepository {
 
 	public Produto listaKdaClient(Carrinho carrinhos, Long cliente) {
 		return carrinhos.getLista(cliente);
+	}
+
+	public Carrinho getById(Long id) {
+		for (int i = 0; i < carrinhos.size(); i++) {
+			if (carrinhos.get(i).getId() == id) {
+				return this.carrinhos.get(i);
+			}
+		}
+		return this.carrinhos.get(-1);
+	}
+
+	public void deleteById(Long id) {
+		for (int i = 0; i < carrinhos.size(); i++) {
+			if (carrinhos.get(i).getId() == id) {
+				carrinhos.remove(i);
+			}
+
+		}
 	}
 }

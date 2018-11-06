@@ -2,7 +2,8 @@ package repository;
 
 import java.util.ArrayList;
 import java.util.List;
-import loja.Produto;
+
+import model.Produto;
 
 public class ProdutoRepository {
 	private List<Produto> produtos = new ArrayList<Produto>();
@@ -43,5 +44,23 @@ public class ProdutoRepository {
 
 	private void incSequenceProduto() {
 		this.idProd++;
+	}
+
+	public Produto getById(Long id) {
+		for (int i = 0; i < produtos.size(); i++) {
+			if (produtos.get(i).getId() == id) {
+				return this.produtos.get(i);
+			}
+		}
+		return this.produtos.get(-1);
+	}
+
+	public void deleteById(Long id) {
+		for (int i = 0; i < produtos.size(); i++) {
+			if (produtos.get(i).getId() == id) {
+				produtos.remove(i);
+			}
+
+		}
 	}
 }

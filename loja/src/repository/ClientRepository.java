@@ -1,7 +1,8 @@
 package repository;
 
 import java.util.ArrayList;
-import loja.Client;
+
+import model.Client;
 
 public class ClientRepository {
 	private ArrayList<Client> clientes = new ArrayList<Client>();
@@ -42,6 +43,23 @@ public class ClientRepository {
 
 	private void incSequenceClient() {
 		this.idSequence++;
+	}
+	
+	public Client getById(Long id) {
+		for (int i = 0; i < clientes.size(); i++) {
+			if(this.clientes.get(i).getId() == id) {
+				return this.clientes.get(i);
+			}
+		}
+		return this.clientes.get(-1);
+	}
+	
+	public void deleteById(Long id) {
+		for (int i = 0; i < clientes.size(); i++) {
+			if(this.clientes.get(i).getId() == id) {
+				clientes.remove(i);
+			}
+		}
 	}
 
 	@Override

@@ -2,7 +2,7 @@ package service;
 
 import java.util.List;
 
-import loja.Produto;
+import model.Produto;
 import repository.ProdutoRepository;
 
 public class ProdutoService {
@@ -24,6 +24,14 @@ public class ProdutoService {
 
 	public List<Produto> listarAll() {
 		return this.produtoR.readAll(null);
+	}
+
+	public Produto getById(Long id) {
+		return produtoR.getById(id);
+	}
+
+	public void deleteById(Long id) {
+		produtoR.deleteById(id);
 	}
 
 }
